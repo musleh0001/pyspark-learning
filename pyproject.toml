@@ -1,0 +1,38 @@
+[project]
+name = "pyspark-learning"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
+    "pyrefly>=1.3.1",
+    "pyspark>=4.2.0",
+    "ruff>=0.16.7",
+]
+
+[project.scripts]
+customer-etl = "pyspark_learning.jobs.customer_etl:run"
+
+[tool.pyrefly]
+project-includes = [
+    "**/*.py*",
+    "**/*.ipynb",
+]
+
+[tool.ruff.lint]
+select = ["I"]
+
+[dependency-groups]
+dev = [
+    "ipdb>=0.13.13",
+    "pytest>=9.1.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pyspark_learning"]
