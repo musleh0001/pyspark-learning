@@ -27,6 +27,7 @@ select = ["I"]
 [dependency-groups]
 dev = [
     "ipdb>=0.13.13",
+    "ipykernel>=7.3.0",
     "pytest>=9.1.1",
 ]
 

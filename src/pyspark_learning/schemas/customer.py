@@ -1,4 +1,4 @@
-import pyspark.sql.types as T
+from pyspark.sql import types as T
 
 CUSTOMER_SCHEMA = T.StructType(
     [
