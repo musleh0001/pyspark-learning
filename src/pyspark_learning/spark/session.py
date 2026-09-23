@@ -7,6 +7,7 @@ def create_spark_session() -> SparkSession:
     spark = (
         SparkSession.builder.appName(settings.app_name)
         .master(settings.spark_master)
+        .config("spark.sql.adaptive.enabled", "true")
         .getOrCreate()
     )
     spark.sparkContext.setLogLevel(settings.spark_log_level)
