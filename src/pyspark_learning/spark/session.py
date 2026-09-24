@@ -8,6 +8,8 @@ def create_spark_session() -> SparkSession:
         SparkSession.builder.appName(settings.app_name)
         .master(settings.spark_master)
         .config("spark.sql.adaptive.enabled", "true")
+        .config("spark.sql.adaptive.skewJoin.enabled", "true")
+        .config("spark.sql.shuffle.partitions", "200")
         .getOrCreate()
     )
     spark.sparkContext.setLogLevel(settings.spark_log_level)
